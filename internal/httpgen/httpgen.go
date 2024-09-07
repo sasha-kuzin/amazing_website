@@ -16,7 +16,7 @@ var tmpl = `
     {{range .Message}}
         <p>{{.}}</p>
     {{end}}
-    <p><a href="{{.WhereToGo}}">Перейти на вкладку погоды</a></p>
+    <p><a href="{{.WhereToGo}}">{{.WhereToGoCapture}}</a></p>
 </body>
 </html>
 `
@@ -24,7 +24,8 @@ var tmpl = `
 type Data struct {
 	Message []string
 	Header,
-	WhereToGo string
+	WhereToGo,
+	WhereToGoCapture string
 }
 
 func GenerateHttp(w http.ResponseWriter, data *Data) {
