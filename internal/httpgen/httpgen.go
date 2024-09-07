@@ -12,14 +12,17 @@ var tmpl = `
     <title>{{.Header}}</title>
 </head>
 <body>
-    <h1>{{.Message}}</h1>
+    <h1>{{.Header}}</h1>
+    {{range .Message}}
+        <p>{{.}}</p>
+    {{end}}
     <p><a href="{{.WhereToGo}}">Перейти на вкладку погоды</a></p>
 </body>
 </html>
 `
 
 type Data struct {
-	Message,
+	Message []string
 	Header,
 	WhereToGo string
 }

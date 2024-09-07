@@ -9,11 +9,11 @@ import (
 )
 
 func mainHandler(w http.ResponseWriter, r *http.Request) {
-	httpgen.GenerateHttp(w, &httpgen.Data{Message: "Вы охуеете, какой тут будет сайт", Header: "Главная", WhereToGo: "/weather"})
+	httpgen.GenerateHttp(w, &httpgen.Data{Message: []string{"Вы охуеете, какой тут будет сайт"}, Header: "Главная", WhereToGo: "/weather"})
 }
 
 func weatherHandler(w http.ResponseWriter, r *http.Request) {
-	httpgen.GenerateHttp(w, &httpgen.Data{Message: weather.Hello(), Header: "Главная", WhereToGo: "/"})
+	httpgen.GenerateHttp(w, &httpgen.Data{Message: weather.LoadWeather(), Header: "Главная", WhereToGo: "/"})
 }
 
 func main() {
