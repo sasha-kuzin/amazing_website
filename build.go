@@ -17,7 +17,7 @@ func main() {
 	// Копирование данных weatherdata
 	copyWeatherData()
 
-	fmt.Println("Сборка и копирование завершены успешно.")
+	fmt.Println("Succesfully built.")
 }
 
 // clearBin удаляет все файлы из папки bin
