@@ -226,7 +226,7 @@ func StartWeatherService(ctx context.Context, masterWg *sync.WaitGroup) {
 
 func LoadWeather() []string {
 	// Return a message along with a list of cities from the cache
-	result := []string{"Вы охуеете от этой погоды.", "Но вроде дальше будет получше.", "Мы очень надеемся.", "Скоро покажем прогноз в этих городах:"}
+	result := []string{"Вы охуеете от этой погоды.", "Но вроде дальше будет получше.", "Мы очень надеемся."}
 	result = append(result, wCache.getCities()...)
 	return result
 }

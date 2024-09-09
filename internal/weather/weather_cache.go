@@ -122,7 +122,7 @@ func timeConverter(rawData []string, timeFormat string, offset time.Duration) ([
 			return nil, fmt.Errorf("error parsing time value %s: %w", rawData[i], err)
 		}
 
-		result[i] = parsedTime.Add(offset)
+		result[i] = parsedTime //.Add(offset) TODO: make sure that we don't need to add offset
 	}
 
 	return result, nil
@@ -212,10 +212,23 @@ func (cache *weatherCache) init() error {
 func (cache *weatherCache) getCities() []string {
 	result := make([]string, 0)
 	for i := range cache.AvailableCities {
+		data := ""
 		cache.cityMt[i].Lock()
-		result = append(result, cache.AvailableCities[i].Title)
+
+		for j := range cache.AvailableCities[i].Time {
+			if time.Now().Before(cache.AvailableCities[i].Time[j]) {
+				timeAsString := (cache.AvailableCities[i].Time[j].Add(time.Hour * time.Duration(cache.AvailableCities[i].Offset)).Format(time.DateTime))
+				data = fmt.Sprintf("%s: %.1f (%s GMT+%d)", cache.AvailableCities[i].Title, cache.AvailableCities[i].Temperature[j], timeAsString, cache.AvailableCities[i].Offset)
+				break
+			}
+		}
+
 		cache.cityMt[i].Unlock()
+
+		result = append(result, data)
 	}
+	result = append(result, "У нас еще есть и прогноз, но пока что мы его вам не покажем, мы не умеем делать красивые странички")
+	result = append(result, "Кто мы, Саша, ту эту хрень один пишешь!")
 	return result
 }
 
