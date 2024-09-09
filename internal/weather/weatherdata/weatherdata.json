@@ -1,0 +1,38 @@
+{
+    "available_cities": [
+        {
+            "latitude": 43.3247,
+            "longitude": 21.9033,
+            "title": "Ниш, Централна Србија, Србија",
+            "offset": 0,
+            "time": [],
+            "temperature": []
+        },
+        {
+            "latitude": 44.804,
+            "longitude": 20.4651,
+            "title": "Београд, Град Београд, Србија",
+            "offset": 0,
+            "time": [],
+            "temperature": []
+        },
+        {
+            "latitude": 53.2521,
+            "longitude": 34.3717,
+            "title": "Брянск, Брянская область, Россия",
+            "offset": 0,
+            "time": [],
+            "temperature": []
+        },
+        {
+            "latitude": 55.7522,
+            "longitude": 37.6156,
+            "title": "Москва, Московская область, Россия",
+            "offset": 0,
+            "time": [],
+            "temperature": []
+        }
+    ],
+    "last_weather_update": "2010-01-01T00:00:00Z",
+    "last_offset_update": "2010-01-01T00:00:00Z"
+}
